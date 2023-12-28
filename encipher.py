@@ -2,8 +2,19 @@ from PIL import Image, ImageDraw
 
 
 def main():
-    im = draw_character("a")
-    im.save(im)
+    im = create_ciphertext("hello world. i am ansel.")
+    im.save("ciphertext.png")
+
+def create_ciphertext(text):
+    lines = [line.strip() for line in text.split(".")]
+    if "" in lines:
+        lines.remove("")
+    size = max([len(line) for line in lines]) * 32, len(lines) * 32
+    im = Image.new("1", size, 1)
+    for y, line in enumerate(lines):
+        for x, c in enumerate(line):
+            im.paste(draw_character(c), (x * 32, y * 32))
+    return im
 
 def draw_character(c):
     size = 32, 32
@@ -23,6 +34,8 @@ def draw_character(c):
         "left_arrow": [20, 24],
     }
     dot = list(range(9, 18)) + list(range(22, 26))
+    if c == " ":
+        return im
     letter = letters.index(c)
     if letter < 18:
         for key, value in lines.items():
