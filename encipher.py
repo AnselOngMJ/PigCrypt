@@ -1,46 +1,52 @@
 from PIL import Image, ImageDraw
 
 
-LINES = {
-    "top": list(range(3, 9)) + list(range(12, 18)),
-    "right": [0, 1, 3, 4, 6, 7, 9, 10, 12, 13, 15, 16],
-    "bottom": list(range(6)) + list(range(9, 15)),
-    "left": [1, 2, 4, 5, 7, 8, 10, 11, 13, 14, 16, 17],
-}
+CHARACTER_SIZE = 32
+ALPHABET = [chr(i) for i in range(97, 123)]
+DOTS = list(range(9, 18)) + list(range(22, 26))
 ARROWS = {
     "top": [21, 25],
     "right": [19, 23],
     "bottom": [18, 22],
     "left": [20, 24],
 }
-DOTS = list(range(9, 18)) + list(range(22, 26))
-ALPHABET = [chr(i) for i in range(97, 123)]
+LINES = {
+    "top": list(range(3, 9)) + list(range(12, 18)),
+    "right": [0, 1, 3, 4, 6, 7, 9, 10, 12, 13, 15, 16],
+    "bottom": list(range(6)) + list(range(9, 15)),
+    "left": [1, 2, 4, 5, 7, 8, 10, 11, 13, 14, 16, 17],
+}
 
 
 def main():
-    im = create_ciphertext("hello world. i am ansel.")
+    im = create_ciphertext("Hello World. I am Ansel.")
     im.save("ciphertext.png")
 
 
 def create_ciphertext(plaintext):
-    lines = [line.strip() for line in plaintext.split(".")]
+    lines = [line.strip().lower() for line in plaintext.split(".")]
     if "" in lines:
         lines.remove("")
-    size = max([len(line) for line in lines]) * 32, len(lines) * 32
+    size = (
+        max([len(line) for line in lines]) * CHARACTER_SIZE,
+        len(lines) * CHARACTER_SIZE,
+    )
     im = Image.new("1", size, 1)
     for y, line in enumerate(lines):
         for x, character in enumerate(line):
-            im.paste(draw_character(character), (x * 32, y * 32))
+            im.paste(
+                draw_character(character), (x * CHARACTER_SIZE, y * CHARACTER_SIZE)
+            )
     return im
 
 
 def draw_character(character):
-    size = 32, 32
+    size = CHARACTER_SIZE, CHARACTER_SIZE
     im = Image.new("1", size, 1)
-    draw = ImageDraw.Draw(im)
     if character == " ":
         return im
     letter = ALPHABET.index(character)
+    draw = ImageDraw.Draw(im)
     if letter < 18:
         for key, value in LINES.items():
             if letter in value:
