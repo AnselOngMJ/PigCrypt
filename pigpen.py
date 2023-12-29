@@ -69,11 +69,11 @@ def draw_element(im, element, angle=0):
         case "dot":
             draw.ellipse((27, 27, 36, 36), fill=black)
         case "arrow":
-            draw.line((4, 60, 32, 4), fill=black, width=5)
-            draw.line((59, 60, 31, 4), fill=black, width=5)
-            draw.rectangle((31, 2, 32, 3), fill=black)
+            draw.line((7, 57, 32, 7), fill=black, width=5)
+            draw.line((56, 57, 31, 7), fill=black, width=5)
+            draw.rectangle((31, 5, 32, 6), fill=black)
         case "line":
-            draw.line((2, 4, 61, 4), fill=black, width=5)
+            draw.line((5, 7, 58, 7), fill=black, width=5)
     element_im = element_im.rotate(angle)
     im.alpha_composite(element_im)
     return im
