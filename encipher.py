@@ -26,6 +26,7 @@ def get_valid_text():
         else:
             return plaintext
 
+
 def get_valid_key(specify_key):
     template = """
        |   |         |   |   
