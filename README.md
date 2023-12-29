@@ -29,3 +29,5 @@ $ python encipher.py ciphertext -k
 Enter plaintext (use '.' for newlines): hello world
 Enter key: qwertyuiopasdfghjklzxcvbnm
 ```
+
+![Pigpen Key](https://github.com/AnselOngMJ/PigCrypt/blob/main/images/pigpen_key.png "Pigpen Key")
