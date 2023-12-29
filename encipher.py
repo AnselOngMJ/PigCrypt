@@ -41,12 +41,13 @@ def get_valid_key(specify_key):
      g | h | i     p | q | r 
        |   |         |   |   
     
-    \\  s /   \\  w /
-     \\  /     \\ •/ 
-     t\\/u    x•\\/•y
-      /\\       /\\  
-     /  \\     / •\\ 
-    /  v \\   /  z \\
+      \\     /       \\  w  /
+       \\ s /         \\ • / 
+        \\ /           \\ /  
+      t  X  u       x• X •y   
+        / \\           / \\  
+       / v \\         / • \\ 
+      /     \\       /  z  \\
     """
     print(template)
     print("Default key: abcdefghijklmnopqrstuvwxyz")
