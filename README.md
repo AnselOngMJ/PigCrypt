@@ -22,7 +22,7 @@ pip install -r requirements.txt
 ### With default key:
 
 ```sh
-$ python encipher.py ciphertext
+$ python encipher.py file_name
 Enter plaintext (use '.' for newlines): hello world
 ```
 Example output with default key:
@@ -32,7 +32,7 @@ Example output with default key:
 ### With customised key:
 
 ```sh
-$ python encipher.py ciphertext -k
+$ python encipher.py file_name -k
 Enter plaintext (use '.' for newlines): hello world
 Enter key: qwertyuiopasdfghjklzxcvbnm
 ```
