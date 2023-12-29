@@ -44,7 +44,7 @@ def get_valid_key(specify_key):
       \\     /       \\  w  /
        \\ s /         \\ • / 
         \\ /           \\ /  
-      t  X  u       x• X •y   
+      t  X  u       x• X •y  
         / \\           / \\  
        / v \\         / • \\ 
       /     \\       /  z  \\
