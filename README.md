@@ -1,6 +1,6 @@
 # PigCrypt
 
-Description
+PigCrypt is a command line tool for encoding plaintext with the Pigpen Cipher. It outputs the coded message as an image file because a Pigpen Cipher works by substituting letters with graphical symbols mapped to each other by a key.
 
 ## Installation
 
