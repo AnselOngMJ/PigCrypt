@@ -31,3 +31,5 @@ Enter key: qwertyuiopasdfghjklzxcvbnm
 ```
 
 ![Pigpen Key](https://github.com/AnselOngMJ/PigCrypt/blob/main/images/pigpen_key.png "Pigpen Key")
+
+![Pigpen Guide](https://github.com/AnselOngMJ/PigCrypt/blob/main/images/pigpen_guide.png "Pigpen Guide")
