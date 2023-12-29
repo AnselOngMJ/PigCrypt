@@ -2,7 +2,7 @@ from PIL import Image, ImageDraw
 
 
 CHARACTER_SIZE = 64
-ALPHABET = [chr(i) for i in range(97, 123)]
+KEY = [chr(i) for i in range(97, 123)]
 DOTS = set(range(9, 18)).union(set(range(22, 26)))
 ARROWS = {
     "top": {21, 25},
@@ -24,9 +24,10 @@ POSITIONS_TO_ANGLES = {
 }
 
 
-def create_ciphertext(plaintext, alphabet=ALPHABET):
+def create_ciphertext(plaintext, key):
     lines = [line.strip().lower() for line in plaintext.split(".")]
-    lines.remove("") if "" in lines else None
+    while "" in lines:
+        lines.remove("")
     size = (
         max([len(line) for line in lines]) * CHARACTER_SIZE,
         len(lines) * CHARACTER_SIZE,
@@ -35,18 +36,18 @@ def create_ciphertext(plaintext, alphabet=ALPHABET):
     for y, line in enumerate(lines):
         for x, character in enumerate(line):
             im.alpha_composite(
-                draw_character(character, alphabet),
+                draw_character(character, key),
                 (x * CHARACTER_SIZE, y * CHARACTER_SIZE),
             )
     return im
 
 
-def draw_character(character, alphabet):
+def draw_character(character, key):
     size = CHARACTER_SIZE, CHARACTER_SIZE
     im = Image.new("RGBA", size)
     if character == " ":
         return im
-    letter = alphabet.index(character)
+    letter = key.index(character)
     if letter in DOTS:
         im = draw_element(im, "dot")
     if letter > 17:
