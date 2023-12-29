@@ -25,7 +25,8 @@ pip install -r requirements.txt
 $ python encipher.py ciphertext
 Enter plaintext (use '.' for newlines): hello world
 ```
-Example output with default key:  
+Example output with default key:
+
 ![hello world enciphered with pigpen](https://github.com/AnselOngMJ/PigCrypt/blob/main/images/example.png)
 
 ### With customised key:
@@ -39,8 +40,10 @@ The key entered should contain each letter of the English alphabet once in the o
 
 ## Pigpen Cipher
 
-Example of a pigpen cipher key:  
+Example of a pigpen cipher key:
+
 ![pigpen key](https://github.com/AnselOngMJ/PigCrypt/blob/main/images/pigpen_key.png)
 
-How letters translate to symbols:  
+How letters translate to symbols:
+
 ![pigpen guide](https://github.com/AnselOngMJ/PigCrypt/blob/main/images/pigpen_guide.png)
